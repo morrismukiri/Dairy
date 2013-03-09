@@ -9,5 +9,15 @@
 <title>Ciangoi Cabugi RMS</title>
 </head>
 <body >
-	<h1 class="page-header hero-uni">Ciangoi Cabugi Dairy Record Management System</h1>
+<div id="top" class="page-header">
+	<a href=""><img src="img/logo.png"/ alt="logo" id="logo"></a><h1 id="title" >Ciangoi Cabugi Dairy Record System</h1>
+	<div id="navigation" class="navbar pull-right">
+		<ul class="nav navbar-inner">
+			<li><a href="">Home</a></li>
+			<li><a href="">Farmers</a></li>
+			<li><a href="">Sales</a></li>
+			<li><a href="">Reports</a></li>	
+		</ul>
+	</div>
+</div>
 	<div  id="main-content" class="modal-body" >
