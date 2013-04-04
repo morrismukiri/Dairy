@@ -1,23 +1,36 @@
-
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-	<link type="text/css" rel="stylesheet"	href="css/bootstrap-responsive.css" />
-	<link type="text/css" rel="stylesheet" href="css/main.css" />
-<title>Ciangoi Cabugi RMS</title>
-</head>
-<body >
-<div id="top" class="page-header">
-	<a href=""><img src="img/logo.png"/ alt="logo" id="logo"></a><h1 id="title" >Ciangoi Cabugi Dairy Record System</h1>
-	<div id="navigation" class="navbar pull-right">
-		<ul class="nav navbar-inner">
-			<li><a href="">Home</a></li>
-			<li><a href="">Farmers</a></li>
-			<li><a href="">Sales</a></li>
-			<li><a href="">Reports</a></li>	
-		</ul>
-	</div>
-</div>
-	<div  id="main-content" class="modal-body" >
+ <?php
+/*set the web address of the website with a trailing slash
+ * for definite url paths
+ */define('PAGE_URL', 'http://localhost/Dairy/');
+function Page_Url() {
+    echo  PAGE_URL;
+    
+}
+
+//include("conn.php");// include the connection settings
+?>   <head>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="<?php Page_Url()?>css/bootstrap.css" /> 
+        <link type="text/css" rel="stylesheet"	href="<?php Page_Url()?>css/bootstrap-responsive.css" />
+        <link type="text/css" rel="stylesheet" href="<?php Page_Url()?>css/main.css" />
+        <title>Ciangoi Cabugi RMS</title>
+    </head>
+    <body >
+        <!--    The top of the page visible on all pages in the system-->
+        <div id="top" class="page-header">
+            <!--top logo-->	
+            <a href="<?php Page_Url()?>"><img src="<?php Page_Url()?>img/logo.png"/ alt="logo" id="logo"></a><h1 id="title" >Ciangoi Cabugi Dairy Record System</h1>
+            <!--top navigation-->	
+            <div id="navigation" class="navbar pull-right">
+                <ul class="nav navbar-inner">
+                    <li><a href="<?php Page_Url()?>">Home</a></li>
+                    <li><a href="<?php Page_Url()?>farmers/index.php">Farmers</a></li>
+                    <li><a href="<?php Page_Url()?>sales/index.php">Sales</a></li>
+                    <li><a href="<?php Page_Url()?>reports/index.php">Reports</a></li>	
+                </ul>
+            </div> <!--end navigation-->
+        </div>
+        <!--beginning of the pages' body-->
+        <div  id="main-content" class="modal-body" >

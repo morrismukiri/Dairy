@@ -1,6 +1,10 @@
 @CHARSET "ISO-8859-1";
 #logo{
 	float:left;
-	width:50px;
+	width: 10%;
 	margin-left:100px;
+}
+#main-content{
+    margin: 0 100px;
+    min-height: 510PX;
 }

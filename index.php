@@ -1,7 +1,8 @@
-<?php 
-include 'incl/header.incl.php';
+<?php
+include ("incl/header.incl.php");
 ?>
-Home
+<h1>Home</h1>
 <?php 
-include 'incl/footer.incl.php';
+$footer='incl/footer.incl.php';
+include ("$footer");
 ?>
