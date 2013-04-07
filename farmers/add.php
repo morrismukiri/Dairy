@@ -1,25 +1,44 @@
 <?php
 include '../incl/header.incl.php';
 include("../incl/conn.incl.php");// include the connection settings
+include 'validate.php';
 ?>
 <h1>Add Farmers</h1>
 <?php
+ $validation= array ('valid'=>true, 'nulls'=>'','id'=>'','no'=>'');
 if (isset($_POST['submitted'])) {
-    foreach ($_POST AS $key => $value) {
-        $_POST[$key] = mysql_real_escape_string($value);
-    }
-    $sql = "INSERT INTO `farmers` ( `f_no` , `f_name` , `f_locallity` ,  `f_ac` ,  `f_phone`  ) VALUES(  '{$_POST['f_no']}' , '{$_POST['f_name']}' , '{$_POST['f_locallity']}' ,  '{$_POST['f_ac']}' ,  '{$_POST['f_phone']}'  ) "; //"INSERT INTO farmers ( 'f_no' ,'f_name',  'f_locallity' ,  'f_ac' ,  'f_phone'  ) VALUES(  '{$_POST['f_no']}' ,  '{$_POST['f_name']}',  '{$_POST['f_locallity']}' ,  '{$_POST['f_ac']}' ,  '{$_POST['f_phone']}'  ) ";
+//    foreach ($_POST AS $key => $value) {
+//        $_POST[$key] = mysql_real_escape_string($value);
+//    }
+     $validation= validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'],$conn);
+     if ($validation['valid']==TRUE ) {
+    $sql = "INSERT INTO `farmers` ( `f_no` ,`f_id` , `f_name` , `f_locallity` ,  `f_ac` ,  `f_phone`  ) VALUES(  '{$_POST['f_no']}' ,'{$_POST['f_id']}' , '{$_POST['f_name']}' , '{$_POST['f_locallity']}' ,  '{$_POST['f_ac']}' ,  '{$_POST['f_phone']}'  ) ";
+    
     mysql_query($sql,$conn) or die(mysql_error());
     echo "Added row.<br />";
-    echo "<a href='list.php'>Back To Listing</a>";
+    echo "<a href='index.php'  class='btn btn-primary'>Back To Listing</a>";
+     }
+     else {
+            echo $validation['nulls'];
+            
+ }
 }
+ 
 ?>
 
 <form action='' method='POST' class="form-horizontal"> 
     <div class="control-group">
         <label class="control-label" for="f_no"> No:</label >
         <div class="controls">
-            <input class="input-xlarge" type="text" placeholder="CCF****" name='f_no'/> 
+            <input class="input-xlarge" type="text" placeholder="CCF****" name='f_no'/>
+            <?php echo $validation['no'] ?>
+        </div>
+    </div>
+     <div class="control-group">
+        <label class="control-label" for="f_id">ID No:</label >
+        <div class="controls">
+            <input class="input-xlarge" type="text" placeholder="CCF****" name='f_id'/> 
+                <?php echo $validation['id'] ?>
         </div>
     </div>
     <div class="control-group">

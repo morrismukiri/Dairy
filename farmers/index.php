@@ -4,9 +4,9 @@ include '../incl/conn.incl.php';
 ?>
 <h1>Farmers</h1>
 <? 
-if(isset($_GET['delete'])){
+if(isset($_GET['delete'] , $_GET['id'])){
 $f_no = (int) $_GET['id']; 
-mysql_query("DELETE FROM `farmers` WHERE `f_no` = '$f_no' ",$conn) ; 
+mysql_query("DELETE FROM `farmers` WHERE `f_no` = '" .stripslashes($f_no)."' ",$conn) ; 
 echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.<br /> ";
 }
 ?> 
@@ -15,6 +15,7 @@ echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.
     <thead class="" >
         <th>#</th>
         <th>Farmer NO:</th>
+         <th>ID NO:</th>
         <th>Name:</th>
         <th>Locality</th>
         <th>Account No:</th>
@@ -33,6 +34,7 @@ while($row=  mysql_fetch_array($qry))
     echo '<tr>';
         echo '<td>'.$i.'</td>';
         echo '<td>'.$row['f_no'].'</td>';
+          echo '<td>'.$row['f_id'].'</td>';
         echo '<td>'.$row['f_name'].'</td>';
         echo '<td>'.$row['f_locallity'].'</td>';
         echo '<td>'.$row['f_ac'].'</td>';
