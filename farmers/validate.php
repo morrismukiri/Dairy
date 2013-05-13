@@ -24,7 +24,7 @@
             $errors['no'] = '';
         }
       
-  $errors['valid']=!$has_errors;
+  $errors['valid']=$has_errors;
     return $errors;
 }
 ?>

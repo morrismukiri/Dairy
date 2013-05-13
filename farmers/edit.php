@@ -7,21 +7,24 @@ include 'validate.php';
 ?>
 <h1>Edit Farmer</h1>
 <?php
-if (isset($_GET['edit']) && isset($_GET['id'])) {
+//if (isset($_GET['edit']) && isset($_GET['id'])) {
     $f_no = (int) $_GET['id'];
     if (isset($_POST['submitted'])) {
+        // 
        $validation= validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'],$conn);
           if ($validation['valid']==TRUE ) {
               $sql = "UPDATE farmers SET  f_no =  '{$_POST['f_no']}' ,f_id =  '{$_POST['f_id']}' ,  f_name =  '{$_POST['f_name']}' , f_locallity =  '{$_POST['f_locallity']}' ,  f_ac =  '{$_POST['f_ac']}' ,  f_phone =  '{$_POST['f_phone']}'   WHERE f_no = '$f_no' ";
             $rslt = mysql_query($sql, $conn) or die(mysql_error());
+            $f_no = (int) $_POST['f_no'];
             echo (mysql_affected_rows($conn)) ? " Edited row.<br />" : "Nothing changed. <br />";
             echo "<a href='index.php' class='btn btn-primary'>Back To Listing</a>";
+            
         }
  else {
             echo $validation['nulls'];
  }
     }
-    $farmer_to_edit = mysql_query("SELECT * FROM farmers WHERE f_no ='".  stripslashes($f_no) ."'", $conn);
+    $farmer_to_edit = mysql_query("SELECT * FROM farmers WHERE f_no =".  stripslashes($f_no) , $conn);
 
     $row = mysql_fetch_array($farmer_to_edit);
      //echo $validation['nulls'];
@@ -72,4 +75,4 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
             </div>
         </div>
     </form>
-<? } ?> 
+<? //} ?> 

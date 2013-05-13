@@ -1,6 +1,6 @@
 <?php
 
-function validate_sales($r_f_no, $r_kg, $r_dt) {
+function validate_delivery($r_f_no, $r_kg, $r_dt) {
     $errors = array('valid' => true, 'fn' => '', 'kg' => '', 'dt' => '');
     $has_errors = FALSE;
     if ($r_f_no == '') {
