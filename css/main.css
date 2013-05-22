@@ -5,6 +5,18 @@
 	margin-left:100px;
 }
 #main-content{
-    margin: 0 100px;
-    min-height: 510PX;
+    margin: 0 50px;
+    overflow: visible;
+    min-height: 550PX;
+}
+.span .span3 img{
+    widht: 220px;
+    height: 220px;
+}
+#receipt {
+width: 360px;
+}
+#receipt td{
+   
+    margin: 100px;
 }

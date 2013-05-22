@@ -174,7 +174,7 @@ function unauthorize_if_not_logged_in() {
 	if ((!preg_match('/inc.auth.php/', $_SERVER['PHP_SELF']))
 	  && (!isset($_SESSION['user_logged_in'])
 	  || $_SESSION['user_logged_in'] !== true)) {
-		header('Location: ../inc.auth.php');
+		header('Location: http://localhost/Dairy/employees/inc.auth.php');
 		exit;
 	}
 }

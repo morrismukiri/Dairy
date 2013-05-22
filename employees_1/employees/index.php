@@ -28,15 +28,15 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `employees` WHERE `id` = '
 <legend>Add / Edit</legend>
 <div>
 <ul>
-  <li><label><span>E Name:</span>
+  <li><label><span>Name:</span>
     <input type="text" name="e_name" value="<?= (isset($row['e_name']) ? stripslashes($row['e_name']) : '') ?>" /></label></li>
-  <li><label><span>E Mail:</span>
+  <li><label><span>Mail:</span>
     <input type="text" name="e_mail" value="<?= (isset($row['e_mail']) ? stripslashes($row['e_mail']) : '') ?>" /></label></li>
-  <li><label><span>E Pass:</span>
+  <li><label><span>Pass:</span>
     <input type="text" name="e_pass" value="<?= (isset($row['e_pass']) ? stripslashes($row['e_pass']) : '') ?>" /></label></li>
-  <li><label><span>E Role:</span>
+  <li><label><span>Role:</span>
     <input type="text" name="e_role" value="<?= (isset($row['e_role']) ? stripslashes($row['e_role']) : '') ?>" /></label></li>
-  <li><label><span>E Payroll No:</span>
+  <li><label><span>Payroll No:</span>
     <input type="text" name="e_payroll_no" value="<?= (isset($row['e_payroll_no']) ? stripslashes($row['e_payroll_no']) : '') ?>" /></label></li>
 </ul>
 <p><input type="hidden" value="1" name="submitted" />

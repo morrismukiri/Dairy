@@ -39,7 +39,8 @@
         $(function() {
             $('#datetimepicker1,#datetimepicker2').datetimepicker({
                 language: 'pt-BR',
-                pickTime:false
+                pickTime:false,
+                format:'yyyy-MM-dd'
             });
         });
     });

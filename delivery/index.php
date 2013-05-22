@@ -1,8 +1,11 @@
 
 
 <?php 
-include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
+include '../incl/header.incl.php';
+//include('../incl/auth.incl.php');
+
+
 
 if(isset($_GET['delete'])){
     $id = (int) $_GET['id']; 
@@ -43,7 +46,7 @@ echo "<td valign='top'>" . nl2br( $row['r_deliverer']) . "</td>";
              </td>';
 echo "</tr>"; 
 } 
-echo "</table>"; 
+echo "</tbody></table>"; 
 
 
 

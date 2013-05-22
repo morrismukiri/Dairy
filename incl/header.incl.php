@@ -28,7 +28,9 @@ function Page_Url() {
                 <ul class="nav navbar-inner">
                     <li><a href="<?php Page_Url()?>">Home</a></li>
                     <li><a href="<?php Page_Url()?>farmers/index.php">Farmers</a></li>
+                    <li><a href="<?php Page_Url()?>employees/index.php">Employees</a></li>
                     <li><a href="<?php Page_Url()?>delivery/index.php">Deliveries</a></li>
+                     <li><a href="<?php Page_Url()?>payment/index.php">Payments</a></li>
                     <li><a href="<?php Page_Url()?>reports/index.php">Reports</a></li>	
                         <li><a href="<?php Page_Url()?>settings/index.php">Settings</a></li>	
                 </ul>
