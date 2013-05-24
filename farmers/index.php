@@ -5,6 +5,10 @@ include '../incl/conn.incl.php';
 <h1>Farmers</h1>
 <? 
 if(isset($_GET['delete'] , $_GET['id'])){
+    if ($current_user['role'] == 'Clerk') {
+echo "sorry Clerks are not allowed to access this module";
+exit();
+}
 $f_no = (int) $_GET['id']; 
 mysql_query("DELETE FROM `farmers` WHERE `f_no` = '" .stripslashes($f_no)."' ",$conn) ; 
 echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.<br /> ";
@@ -20,7 +24,7 @@ echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.
         <th>Locality</th>
         <th>Account No:</th>
         <th>Phone No:</th>
-        <th style="text-align: center">Tasks</th>
+         <?php if ($current_user['role'] != 'Clerk') {?><th style="text-align: center">Tasks</th> <?php } ?>
         </thead>
     <tbody>
   <?php
@@ -39,10 +43,12 @@ while($row=  mysql_fetch_array($qry))
         echo '<td>'.$row['f_locallity'].'</td>';
         echo '<td>'.$row['f_ac'].'</td>';
         echo '<td>'.$row['f_phone'].'</td>';
-        echo '<td  style="text-align: center">
+         if ($current_user['role'] != 'Clerk') {
+             echo '<td  style="text-align: center">
                 <a href="'.PAGE_URL.'farmers/edit.php?edit=1&id='.$row['f_no'].'" class="btn btn-primary btn-mini"><i class="icon-edit icon-white"></i>Edit</a> | 
                 <a href="'.PAGE_URL.'farmers/?delete=1&id='.$row['f_no'].'" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i>Delete</a> 
              </td>';
+         }
 
     echo '</tr>';
 }

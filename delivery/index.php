@@ -24,7 +24,7 @@ echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "
         <th>KGs:</th>
         <th>Date</th>
         <th>Deliverer:</th>
-       <th style="text-align: center">Tasks</th>
+        <?php if ($current_user['role'] != 'Clerk') {?><th style="text-align: center">Tasks</th><?php } ?>
         </thead>
     <tbody>
  <?php
@@ -40,10 +40,12 @@ echo "<td valign='top'>" . nl2br( $row['r_f_no']) . "</td>";
 echo "<td valign='top'>" . nl2br( $row['r_kg']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['r_dt']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['r_deliverer']) . "</td>";  
- echo '<td  style="text-align: center">
+  if ($current_user['role'] != 'Clerk') {
+      echo '<td  style="text-align: center">
                 <a href="'.PAGE_URL.'delivery/edit.php?edit=1&id='.$row['id'].'" class="btn btn-primary btn-mini"><i class="icon-edit icon-white"></i>Edit</a> | 
                 <a href="'.PAGE_URL.'delivery/?delete=1&id='.$row['id'].'" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i>Delete</a> 
              </td>';
+  }
 echo "</tr>"; 
 } 
 echo "</tbody></table>"; 

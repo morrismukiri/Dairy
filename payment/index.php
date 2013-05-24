@@ -1,6 +1,7 @@
 <?php
 include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
+
 $start = isset($_REQUEST['from']) ? $_REQUEST['from'] : '';
 $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
 ?>
@@ -68,7 +69,7 @@ $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
             echo "<td valign='top'>" . nl2br($farmer['f_name']) . "</td>";
             echo "<td valign='top'>" . nl2br($farmer['last_paid']) . "</td>";
             echo "<td valign='top'>" . $farmer_total . "</td>";
-            if ($start > $farmer['last_paid']  ) {
+           if ($start > $farmer['last_paid'] ) {
                 echo "<td valign='top'><a href='pay.php?f_no=$f_no&start=$start&end=$end' class='btn btn-info'>Pay</a></td>";
             } else {
                 echo "<td valign='top'><a href='#' class='btn btn-danger'>Paid</a></td>";

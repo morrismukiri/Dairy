@@ -5,7 +5,7 @@ include ("incl/header.incl.php");
 <div class="span">
     <div class="span span3" >
         <a href='farmers/index.php'>
-            <img src="img/farmers.jpg"><br/>
+            <img src="img/farmer.jpg"><br/>
             <strong> Farmers</strong>
         </a>
     </div>

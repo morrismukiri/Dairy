@@ -1,4 +1,4 @@
-
+<a href='index.php' class='btn btn-primary'>Back To Listing</a>
 <form action='' method='POST'> 
     <div class="control-group"> 
         <label class="control-label" for="e_name">Name:</label >
@@ -22,10 +22,10 @@
         <label class="control-label" for="e_role">Role:</label > 
         <div class="controls">            
 <!--            <input class="input-xlarge" type="text" name='e_role' value='<?= stripslashes($row['e_role']) ?>' /> -->
-            <select class="input-xlarge" name='e_role'>
-               <option  <?=  $selected=(stripslashes($row['e_role'])=='Admin'?"selected='selected'":""); echo $selected ?>>Admin</option>
-                <option <?=  $selected=(stripslashes($row['e_role'])=='Supervisor'?"selected='selected'":""); echo $selected ?>>Supervisor</option>
-                <option <?=  $selected=(stripslashes($row['e_role'])=='Clerk'?"selected='selected'":""); echo $selected ?>>Clerk</option>
+            <select class="input-xlarge" name='e_role'> 
+               <option <?=  $selected=(stripslashes($row['e_role'])=='Clerk'?"selected='selected'":""); echo $selected ?>>Clerk</option>
+               <option <?=  $selected=(stripslashes($row['e_role'])=='Supervisor'?"selected='selected'":""); echo $selected ?>>Supervisor</option>
+               <option  <?=  $selected=(stripslashes($row['e_role'])=='Manager'?"selected='selected'":""); echo $selected ?>>Manager</option>
             </select> 
         </div> 
     </div>

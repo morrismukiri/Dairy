@@ -77,8 +77,9 @@ $start = isset($_REQUEST['from'])?$_REQUEST['from']:'';
     $(document).ready(function() {
         $(function() {
             $('#datetimepicker1,#datetimepicker2').datetimepicker({
-//                language: 'pt-BR',
-//                pickTime: false
+                language: 'pt-BR',
+                pickTime: false,
+                format:'yyyy-MM-dd'
             });
         });
     });

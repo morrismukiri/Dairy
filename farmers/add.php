@@ -16,13 +16,13 @@ if (isset($_POST['f_no'])) {
 
         mysql_query($sql, $conn) or die(mysql_error());
         echo "Farmer Added.<br />";
-        echo "<a href='index.php'  class='btn btn-primary'>Back To Farmers</a>";
+       
     } else {
         echo $validation['nulls'];
     }
 }
 ?>
-
+<a href='index.php' class='btn btn-primary'>Back To Listing</a>
 <form action='' method='post' class="form-horizontal"> 
     <div class="control-group">
         <label class="control-label" for="f_no"> No:</label >

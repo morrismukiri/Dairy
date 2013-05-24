@@ -1,6 +1,10 @@
 <?
 include '../../incl/header.incl.php';
 include '../../incl/conn.incl.php';
+if ($current_user['role'] != 'Manager') {
+echo "sorry you are not allowed to access this module";
+exit();
+}
 $id=0;
 if (isset($_POST['submitted'])) {
     foreach ($_POST AS $key => $value) {

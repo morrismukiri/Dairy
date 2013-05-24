@@ -1,4 +1,4 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "utf-8";
 #logo{
 	float:left;
 	width: 10%;
@@ -19,4 +19,17 @@ width: 360px;
 #receipt td{
    
     margin: 100px;
+}
+#user{
+    margin-right: 55px;
+  
+}
+.page-header{
+    height: 70px;
+}
+#details{
+    width: 350px;
+}
+#login{
+margin: 200px 400px;
 }
