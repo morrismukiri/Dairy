@@ -43,7 +43,7 @@ include '../incl/conn.incl.php';
         $end = $_REQUEST['to'] != '' ? " and `r_dt` <= '" . mysql_real_escape_string($_REQUEST['to']) . "'" : '';
         //$sql = "SELECT * FROM `delivery` WHERE `r_dt` >= \'2013-05-01 00:00:00\' or `r_dt` <= \'2013-05-30 00:00:00\' ";
         $result = mysql_query("SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end") or trigger_error(mysql_error());
-       echo "SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end";
+      // echo "SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end";
         $i = 0;
         $total=0;
         while ($row = mysql_fetch_array($result)) {

@@ -9,6 +9,7 @@ if($_REQUEST['action'] == "login"){
         header("location:".PAGE_URL);
     }else{
         //do something on FAILED login
+       header("location:".PAGE_URL);
         $log->loginform("login", "loginform", PAGE_URL."auth/login.php");
     }
 }

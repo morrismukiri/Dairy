@@ -71,8 +71,6 @@ $start = isset($_REQUEST['from'])?$_REQUEST['from']:'';
     ?>
 </tbody>
 </table>
-<?php include '../incl/footer.incl.php'; ?>
-
 <script type="text/javascript">
     $(document).ready(function() {
         $(function() {
@@ -84,3 +82,5 @@ $start = isset($_REQUEST['from'])?$_REQUEST['from']:'';
         });
     });
 </script>
+<?php include '../incl/footer.incl.php'; ?>
+

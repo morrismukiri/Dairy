@@ -29,6 +29,7 @@ if ($log->logincheck($_SESSION['loggedin'], "employees", "e_pass", "e_mail") == 
 <html>
     <head>
         <meta charset="utf-8" />
+        <!-- for faster page loads these should be on the footer, but careful on having jQuery code in your pages if you do -->
         <script type="text/javascript" src="<?php Page_Url() ?>js/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="<?php Page_Url() ?>js/bootstrap.js"></script>
         <script type="text/javascript" src="<?php Page_Url() ?>js/bootstrap-datetimepicker.min.js"></script>
