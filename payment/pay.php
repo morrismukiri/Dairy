@@ -23,7 +23,9 @@ if (isset($_GET['f_no'])) {
     $authority = $current_user['name'];
     $datetime = strtotime(date('y-m-d'));
     $mysqldate = date("Y-m-d", $datetime);
-    $insertcmd = mysql_query("INSERT INTO `payment` ( `p_to` ,  `p_date` ,  `p_ac` ,  `p_transacted_by`  ) VALUES(  '{$f_no}' ,  '{$mysqldate}' ,  '{$farmer['f_ac']}' ,  '{$authority}'  ) ");
+    $updatesql="UPDATE `farmers` SET  `last_paid` =  '$mysqldate' WHERE  `f_no` =  '$f_no'";
+    
+    $insertcmd = mysql_query($updatesql,$conn); //INSERT INTO `farmers` ( `p_to` ,  `p_date` ,  `p_ac` ,  `p_transacted_by`  ) VALUES(  '{$f_no}' ,  '{$mysqldate}' ,  '{$farmer['f_ac']}' ,  '{$authority}'  ) ");
     ?>
     <div id="printable">
         <table id="receipt"  >
@@ -74,11 +76,9 @@ if (isset($_GET['f_no'])) {
     <?php
 }
 ?>
-<?php include '../incl/footer.incl.php'; ?>
-<script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function() {
         $('#print').on('click', function() {
-            $('#authorizer').text($('#authority').val());
             printDiv('printable');
 
         });
@@ -95,3 +95,4 @@ if (isset($_GET['f_no'])) {
         document.body.innerHTML = originalContents;
     }
 </script>
+<?php include '../incl/footer.incl.php'; ?>

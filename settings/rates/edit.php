@@ -18,5 +18,6 @@ if (isset($_GET['id'])) {
         echo "<a href='index.php'>Back To Listing</a>";
     }
     $row = mysql_fetch_array(mysql_query("SELECT * FROM `settings_rates` WHERE `id` = '$id' "));
+    echo "<a href='index.php'>Back To Listing</a>";
     include 'form.php';
     } ?> 

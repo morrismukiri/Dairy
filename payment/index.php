@@ -2,6 +2,10 @@
 include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
 
+if ($current_user['role'] == 'Clerk') {
+echo "sorry you are not allowed to access this module";
+exit();
+}
 $start = isset($_REQUEST['from']) ? $_REQUEST['from'] : '';
 $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
 ?>
@@ -38,6 +42,7 @@ $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
             <th>Farmer Name:</th>
             <th>Last Paid on:</th>
             <th>Total KGs:</th>
+            <th>Pay</th>
         </tr>
     </thead>
     <tbody>
@@ -78,7 +83,7 @@ $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
                 }
                 echo "</tr>";
             }
-            echo "<tr class='success'><td><strong>Total</strong></td><td><strong>All</strong><td>--</td><td>--</td><td>$total Kgs</td></tr>";
+            echo "<tr class='success'><td><strong>Total</strong></td><td><strong>All</strong><td>--</td><td>--</td><td>$total Kgs</td><td>--</td></tr>";
         }
         ?>
     </tbody>

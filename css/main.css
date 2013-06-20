@@ -34,7 +34,9 @@ width: 360px;
 #login{
 margin: 200px 400px;
 }
-
+#farmer_details{
+    color: #46a546;
+}
 /**---------DataTables Style---------**/
 
 div.dataTables_length label {

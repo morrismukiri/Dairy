@@ -16,9 +16,10 @@ if (isset($_POST['submitted'])) {
     mysql_query($sql) or die(mysql_error());
     
     echo "Added row.<br />";
-    echo "<a href='index.php'>Back To Listing</a>";
+   
      
-}
+} 
+echo "<a href='index.php'>Back To Listing</a>";
  $row = mysql_fetch_array(mysql_query("SELECT * FROM `settings_rates` WHERE `id` = '$id' "));
  include 'form.php';
  ?>
