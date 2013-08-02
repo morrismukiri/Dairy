@@ -1,7 +1,7 @@
 </div>
 <div id="footer" class="modal-footer">
     &copy; 2013 Ciangoi Cabugi Dairy Society.
-    Designed by <a href="mailto:cnmuend@yahoo.com">Catherine Muendi</a>
+    Designed by <a href="mailto:morrismukiri@gmail.com">Morris Mukiri</a>
 
 </div>
 <script type="text/javascript" src="<?php Page_Url() ?>js/jquery.dataTables.js"></script>
