@@ -3,30 +3,37 @@ include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
 include 'validate.php';
 
+if ($current_user['role'] == 'Clerk') {
+echo "sorry Clerks are not allowed to access this module";
+exit();
+}
 
 ?>
 <h1>Edit Farmer</h1>
 <?php
-if (isset($_GET['edit']) && isset($_GET['id'])) {
+//if (isset($_GET['edit']) && isset($_GET['id'])) {
     $f_no = (int) $_GET['id'];
-    if (isset($_POST['submitted'])) {
+    if (isset($_POST['f_no'])) {
+        // 
        $validation= validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'],$conn);
           if ($validation['valid']==TRUE ) {
               $sql = "UPDATE farmers SET  f_no =  '{$_POST['f_no']}' ,f_id =  '{$_POST['f_id']}' ,  f_name =  '{$_POST['f_name']}' , f_locallity =  '{$_POST['f_locallity']}' ,  f_ac =  '{$_POST['f_ac']}' ,  f_phone =  '{$_POST['f_phone']}'   WHERE f_no = '$f_no' ";
             $rslt = mysql_query($sql, $conn) or die(mysql_error());
+            $f_no =  $_POST['f_no'];
             echo (mysql_affected_rows($conn)) ? " Edited row.<br />" : "Nothing changed. <br />";
-            echo "<a href='index.php' class='btn btn-primary'>Back To Listing</a>";
+            echo "";
+            
         }
  else {
             echo $validation['nulls'];
  }
     }
-    $farmer_to_edit = mysql_query("SELECT * FROM farmers WHERE f_no ='".  stripslashes($f_no) ."'", $conn);
+    $farmer_to_edit = mysql_query("SELECT * FROM farmers WHERE f_no =".  stripslashes($f_no) , $conn);
 
     $row = mysql_fetch_array($farmer_to_edit);
      //echo $validation['nulls'];
     ?>
-
+<a href='index.php' class='btn btn-primary'>Back To Listing</a>
     <form action='' method='POST' class="form-horizontal"> 
         <div class="control-group">
             <label class="control-label" for="f_no"> No:</label >
@@ -72,4 +79,4 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
             </div>
         </div>
     </form>
-<? } ?> 
+<? //} ?> 
