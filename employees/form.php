@@ -15,7 +15,7 @@
     <div class="control-group">    
         <label class="control-label" for="e_pass">Pass:</label >
         <div class="controls">  
-            <input class="input-xlarge" type="text" name='e_pass' value='<?= stripslashes($row['e_pass']) ?>' /> 
+            <input class="input-xlarge" type="text" name='e_pass' value='' /> 
         </div> 
     </div>
     <div class="control-group">     

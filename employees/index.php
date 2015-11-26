@@ -12,7 +12,7 @@ echo "<table class='table table-hover table-striped table-condensed table-border
         //echo "<th>Id</th>"; 
         echo "<th> Name</th>"; 
         echo "<th> Mail</th>"; 
-        echo "<th> Pass</th>"; 
+//        echo "<th> Pass</th>"; 
         echo "<th> Role</th>"; 
         echo "<th> Payroll No</th>"; 
         echo "<th>Actions</th></tr> </thead><tbody>"; 
@@ -23,7 +23,7 @@ echo "<table class='table table-hover table-striped table-condensed table-border
         //echo "<td>" . nl2br( $row['id']) . "</td>";  
         echo "<td>" . nl2br( $row['e_name']) . "</td>";  
         echo "<td>" . nl2br( $row['e_mail']) . "</td>";  
-        echo "<td>" . nl2br( $row['e_pass']) . "</td>";  
+//        echo "<td>" . nl2br( $row['e_pass']) . "</td>";  
         echo "<td>" . nl2br( $row['e_role']) . "</td>";  
         echo "<td>" . nl2br( $row['e_payroll_no']) . "</td>";  
         echo "<td><a href=edit.php?e_payroll_no={$row['e_payroll_no']}>Edit</a> | <a href=delete.php?e_payroll_no={$row['e_payroll_no']}>Delete</a></td> "; 

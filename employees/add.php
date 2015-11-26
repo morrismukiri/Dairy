@@ -13,7 +13,8 @@ if (isset($_POST['submitted'])) {
     foreach ($_POST AS $key => $value) {
         $_POST[$key] = mysql_real_escape_string($value);
     }
-    $sql = "INSERT INTO `employees` ( `e_name` ,  `e_mail` ,  `e_pass` ,  `e_role` ,  `e_payroll_no`  ) VALUES(  '{$_POST['e_name']}' ,  '{$_POST['e_mail']}' ,  '{$_POST['e_pass']}' ,  '{$_POST['e_role']}' ,  '{$_POST['e_payroll_no']}'  ) ";
+    $hashed_pass=  md5($_POST['e_pass']);
+    $sql = "INSERT INTO `employees` ( `e_name` ,  `e_mail` ,  `e_pass` ,  `e_role` ,  `e_payroll_no`  ) VALUES(  '{$_POST['e_name']}' ,  '{$_POST['e_mail']}' ,  '{$hashed_pass}' ,  '{$_POST['e_role']}' ,  '{$_POST['e_payroll_no']}'  ) ";
     mysql_query($sql) or die(mysql_error());
     $e_payroll_no = $_POST['e_payroll_no'];
     echo "Added row.<br />";

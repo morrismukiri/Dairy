@@ -1,8 +1,6 @@
 </div>
 <div id="footer" class="modal-footer">
-    &copy; 2013 Ciangoi Cabugi Dairy Society.
-    Designed by <a href="mailto:morrismukiri@gmail.com">Morris Mukiri</a>
-
+    &copy; <?php echo date('Y'); ?> for Ciangoi Cabugi Dairy Society.
 </div>
 <script type="text/javascript" src="<?php Page_Url() ?>js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php Page_Url() ?>js/dataTableDefaults.js"></script>
