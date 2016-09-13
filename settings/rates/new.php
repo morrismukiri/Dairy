@@ -1,4 +1,4 @@
-<?
+<?php 
 include '../../incl/header.incl.php';
 include '../../incl/conn.incl.php';
 if ($current_user['role'] != 'Manager') {

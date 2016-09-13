@@ -3,7 +3,7 @@ include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
 ?>
 <h1>Farmers</h1>
-<? 
+<?php
 if(isset($_GET['delete'] , $_GET['id'])){
     if ($current_user['role'] == 'Clerk') {
 echo "sorry Clerks are not allowed to access this module";

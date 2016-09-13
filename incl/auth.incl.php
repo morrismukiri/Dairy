@@ -26,7 +26,7 @@ if (strlen($msg) > 0)
 
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
     ?>
-    <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post">
+    <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
         <p>You need to log in to edit this database.</p>
         <ul>
             <li style="list-style: none"><label>User: </label><input type="text" name="user" /></li>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true)
         </ul>
         <p><input type="submit" value="Login" /></p>
     </form>
-    <?
+    <?php 
     exit();
 }
 ?>

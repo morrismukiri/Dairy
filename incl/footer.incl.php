@@ -1,6 +1,6 @@
 </div>
 <div id="footer" class="modal-footer">
-    &copy; <?php echo date('Y'); ?> for Ciangoi Cabugi Dairy Society.
+    &copy; <?php echo date('Y'); ?> <a href="https://github.com/morrismukiri">Morris Mukiri</a>.
 </div>
 <script type="text/javascript" src="<?php Page_Url() ?>js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php Page_Url() ?>js/dataTableDefaults.js"></script>

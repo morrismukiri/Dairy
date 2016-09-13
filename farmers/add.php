@@ -22,7 +22,7 @@ if (isset($_POST['f_no'])) {
     }
 }
 ?>
-<a href='index.php' class='btn btn-primary'>Back To Listing</a>
+<a href='index.php' class='btn btn-primary'>Back To Farmers</a>
 <form action='' method='post' class="form-horizontal"> 
     <div class="control-group">
         <label class="control-label" for="f_no"> No:</label >

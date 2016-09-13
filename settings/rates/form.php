@@ -3,7 +3,7 @@
         <div class="control-group">
         <label class="control-label" for="from"> From:</label >
         <div id="datetimepicker1" class="controls input-append date" style="margin-left: 20px">
-            <input class="input-xlarge" type="text" data-format="yyyy-mm-dd"  placeholder="yyyy-mm-dd" name='from' value='<?= stripslashes($row['from']) ?>'/> 
+            <input class="input-xlarge" type="text" data-format="yyyy-mm-dd"  placeholder="yyyy-mm-dd" name='from' value='<?php echo stripslashes($row['from']) ?>'/> 
             <span class="add-on">
                 <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                 </i>
@@ -13,7 +13,7 @@
       <div class="control-group">
         <label class="control-label" for="to"> To:</label >
         <div id="datetimepicker2" class="controls input-append date" style="margin-left: 20px">
-            <input class="input-xlarge" type="text" data-format="yyyy-mm-dd"  placeholder="yyyy-mm-dd" name='to' value='<?= stripslashes($row['to']) ?>'/> 
+            <input class="input-xlarge" type="text" data-format="yyyy-mm-dd"  placeholder="yyyy-mm-dd" name='to' value='<?php echo stripslashes($row['to']) ?>'/> 
             <span class="add-on">
                 <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                 </i>
@@ -23,7 +23,7 @@
     <div class="control-group">
         <label class="control-label" for="rate"> Rate ( KSH/KG)</label >
         <div class="controls">
-            <input class="input-xlarge" type="text" placeholder="4**" name='rate' id='r_kg' value='<?= stripslashes($row['rate']) ?>'/> 
+            <input class="input-xlarge" type="text" placeholder="4**" name='rate' id='r_kg' value='<?php echo stripslashes($row['rate']) ?>'/> 
     </div>
     </div>  <div class="control-group">
 

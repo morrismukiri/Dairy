@@ -38,7 +38,7 @@ if ($log->logincheck($_SESSION['loggedin'], "employees", "e_pass", "e_mail") == 
         <link type="text/css" rel="stylesheet"	href="<?php Page_Url() ?>css/bootstrap-responsive.css" />
         <link type="text/css" rel="stylesheet" href="<?php Page_Url() ?>css/main.css" />
         <link type="text/css" rel="stylesheet" href="<?php Page_Url() ?>css/bootstrap-datetimepicker.min.css" />
-        <title>Ciangoi Cabugi RMS</title>
+        <title>Dairy Record Manager</title>
     </head>
     <body >
         <!--    The top of the page visible on all pages in the system-->
@@ -52,16 +52,16 @@ if ($log->logincheck($_SESSION['loggedin'], "employees", "e_pass", "e_mail") == 
             <a href="<?php Page_Url(); ?>"><img src="<?php Page_Url() ?>img/logo.png"/ alt="logo" id="logo"></a>
 
             <div id="navigation" class="navbar pull-right">
-                <h1 id="title" >Ciangoi Cabugi Dairy Record System</h1>
+                <h1 id="title" >Dairy Record System</h1>
 
                 <ul class="nav navbar-inner">
                     <li><a href="<?php Page_Url() ?>">Home</a></li>
                     <li><a href="<?php Page_Url() ?>farmers/index.php">Farmers</a></li>
                     <li><a href="<?php Page_Url() ?>employees/index.php">Employees</a></li>
                     <li><a href="<?php Page_Url() ?>delivery/index.php">Deliveries</a></li>
-                    <!--<li><a href="<?php Page_Url() ?>payment/index.php">Payments</a></li>-->
-                    <!--<li><a href="<?php Page_Url() ?>reports/index.php">Reports</a></li>-->	
-                    <!--<li><a href="<?php Page_Url() ?>settings/index.php">Settings</a></li>-->
+                    <li><a href="<?php Page_Url() ?>payment/index.php">Payments</a></li>
+                    <li><a href="<?php Page_Url() ?>reports/index.php">Reports</a></li>	
+                    <li><a href="<?php Page_Url() ?>settings/index.php">Settings</a></li>
                 </ul>
             </div> <!--end navigation-->
         </div>

@@ -23,8 +23,8 @@ include ("incl/header.incl.php");
             </a>
         </div>
         <div class="span span3" >
-<!--            <a href='reports/index.php'>
-                <img src="img/reports.jpg"><br/>
+           <a href='reports/index.php'>
+                <img src="img/reports.png"><br/>
                 <strong>  Reports</strong>
             </a>
         </div>
@@ -39,7 +39,7 @@ include ("incl/header.incl.php");
                 <img src="img/setting.png"><br/>
                 <strong>   Settings</strong>
             </a>
-        </div>-->
+        </div>
     </div>
 </div>
 
