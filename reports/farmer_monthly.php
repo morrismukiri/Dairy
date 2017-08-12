@@ -32,9 +32,9 @@ include '../incl/conn.incl.php';
     <h5 id="farmer_details">
      <?php
         if (isset($_REQUEST['farmer']) && $_REQUEST['farmer'] != '') {
-            $f_no = mysql_real_escape_string($_REQUEST['farmer']);
-            $start = $_REQUEST['from'] != '' ? " and `r_dt` >= '" . mysql_real_escape_string($_REQUEST['from']) . "'" : '';
-            $end = $_REQUEST['to'] != '' ? " and `r_dt` <= '" . mysql_real_escape_string($_REQUEST['to']) . "'" : '';
+            $f_no = mysqli_real_escape_string($conn, $_REQUEST['farmer']);
+            $start = $_REQUEST['from'] != '' ? " and `r_dt` >= '" . mysqli_real_escape_string($conn, $_REQUEST['from']) . "'" : '';
+            $end = $_REQUEST['to'] != '' ? " and `r_dt` <= '" . mysqli_real_escape_string($conn, $_REQUEST['to']) . "'" : '';
             //$sql = "SELECT * FROM `delivery` WHERE `r_dt` >= \'2013-05-01 00:00:00\' or `r_dt` <= \'2013-05-30 00:00:00\' ";
             $result = mysqli_query($conn,"SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end") or trigger_error(mysql_error());
             // echo "SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end";

@@ -3,9 +3,9 @@ include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
 
 if (isset($_GET['f_no'])) {
-    $f_no = mysql_real_escape_string($_GET['f_no']);
-    $start = mysql_real_escape_string($_REQUEST['start']);
-    $end = mysql_real_escape_string($_REQUEST['end']);
+    $f_no = mysqli_real_escape_string($conn, $_GET['f_no']);
+    $start = mysqli_real_escape_string($conn, $_REQUEST['start']);
+    $end = mysqli_real_escape_string($conn, $_REQUEST['end']);
     $authority = '';
 
     $rates = mysqli_query($conn,"SELECT * FROM `settings_rates` WHERE `to` <='$end'");

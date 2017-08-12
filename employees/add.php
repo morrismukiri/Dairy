@@ -11,7 +11,7 @@ if ($current_user['role'] != 'Manager') {
 $e_payroll_no = '';
 if (isset($_POST['submitted'])) {
     foreach ($_POST AS $key => $value) {
-        $_POST[$key] = mysql_real_escape_string($value);
+        $_POST[$key] = mysqli_real_escape_string($conn, $value);
     }
     $hashed_pass=  md5($_POST['e_pass']);
     $sql = "INSERT INTO `employees` ( `e_name` ,  `e_mail` ,  `e_pass` ,  `e_role` ,  `e_payroll_no`  ) VALUES(  '{$_POST['e_name']}' ,  '{$_POST['e_mail']}' ,  '{$hashed_pass}' ,  '{$_POST['e_role']}' ,  '{$_POST['e_payroll_no']}'  ) ";

@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
     if (isset($_POST['submitted'])) {
         foreach ($_POST AS $key => $value) {
-            $_POST[$key] = mysql_real_escape_string($value);
+            $_POST[$key] = mysqli_real_escape_string($conn, $value);
         }
         $sql = "UPDATE `settings_rates` SET  `from` =  '{$_POST['from']}' ,  `to` =  '{$_POST['to']}' ,  `rate` =  '{$_POST['rate']}'   WHERE `id` = '$id' ";
         mysqli_query($conn,$sql) or die(mysql_error());

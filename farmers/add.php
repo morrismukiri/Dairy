@@ -8,7 +8,7 @@ include 'validate.php';
 $validation = array('valid' => true, 'nulls' => '', 'id' => '', 'no' => '');
 if (isset($_POST['f_no'])) {
 //    foreach ($_POST AS $key => $value) {
-//        $_POST[$key] = mysql_real_escape_string($value);
+//        $_POST[$key] = mysqli_real_escape_string($conn, $value);
 //    }
     $validation = validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'], $conn);
     if ($validation['valid'] == TRUE) {

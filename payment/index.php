@@ -48,8 +48,8 @@ $end = isset($_REQUEST['to']) ? $_REQUEST['to'] : '';
     <tbody>
         <?php
         if (isset($_POST['from'])) {
-            $start = mysql_real_escape_string($_REQUEST['from']);
-            $end = mysql_real_escape_string($_REQUEST['to']);
+            $start = mysqli_real_escape_string($conn, $_REQUEST['from']);
+            $end = mysqli_real_escape_string($conn, $_REQUEST['to']);
 
             $farmers = mysqli_query($conn,"select f_no,f_name,last_paid from farmers", $conn) or die("unable to fetch records" . mysql_error());
             $i = 0;

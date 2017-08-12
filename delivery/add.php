@@ -1,5 +1,3 @@
-
-
 <?php
 include '../incl/header.incl.php';
 include '../incl/conn.incl.php';
@@ -8,7 +6,7 @@ $validation = array('valid' => true, 'fn' => '', 'kg' => '', 'dt' => '');
 
 if (isset($_POST['submitted'])) {
     foreach ($_POST AS $key => $value) {
-        $_POST[$key] = mysql_real_escape_string($value);
+        $_POST[$key] = mysqli_real_escape_string($conn, $value);
     }
     $validation = validate_delivery($_POST['r_f_no'], $_POST['r_kg'], $_POST['r_dt']);
     if ($validation['valid']) {

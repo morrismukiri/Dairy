@@ -8,7 +8,7 @@ exit();
 $id=0;
 if (isset($_POST['submitted'])) {
     foreach ($_POST AS $key => $value) {
-        $_POST[$key] = mysql_real_escape_string($value);
+        $_POST[$key] = mysqli_real_escape_string($conn, $value);
     }
   $from=  date("Y-m-d",strtotime($_POST['from']) );
   $to= date("Y-m-d",strtotime($_POST['to']) );
