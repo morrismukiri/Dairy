@@ -24,7 +24,7 @@ class logmein {
     //connect to database
 
     function dbconnect() {
-        $connections = mysql_connect($this->hostname_logon, $this->username_logon, $this->password_logon) or die('Unabale to connect to the database');
+        $connections = mysqli_connect($this->hostname_logon, $this->username_logon, $this->password_logon) or die('Unabale to connect to the database');
         mysqli_select_db($connections, $this->database_logon) or die('Unable to select database!');
         return;
     }
