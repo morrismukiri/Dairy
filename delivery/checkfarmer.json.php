@@ -1,7 +1,7 @@
 <?php
 include_once  '../incl/conn.incl.php';
 $fname=$_POST['fname'];
-$fqry=  mysql_query("select * from farmers where f_no='". mysql_real_escape_string($fname) ."'",$conn)  or die("unable to fetch records" . mysql_error());
+$fqry=  mysqli_query($conn,"select * from farmers where f_no='". mysql_real_escape_string($fname) ."'",$conn)  or die("unable to fetch records" . mysql_error());
 if(!mysql_num_rows($fqry)<1){
     ?>
  <div class="control-group">

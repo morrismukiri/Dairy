@@ -7,7 +7,7 @@ echo "sorry you are not allowed to access this module";
 exit();
 }
 $id = (int) $_GET['id']; 
-mysql_query("DELETE FROM `settings_rates` WHERE `id` = '$id' ") ; 
+mysqli_query($conn,"DELETE FROM `settings_rates` WHERE `id` = '$id' ") ; 
 echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "; 
 ?> 
 

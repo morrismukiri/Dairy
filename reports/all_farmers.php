@@ -42,13 +42,13 @@ $start = isset($_REQUEST['from'])?$_REQUEST['from']:'';
     $start = mysql_real_escape_string($_REQUEST['from']);
     $end = mysql_real_escape_string($_REQUEST['to']);
 
-    $farmers = mysql_query("select f_no,f_name from farmers", $conn) or die("unable to fetch records" . mysql_error());
+    $farmers = mysqli_query($conn,"select f_no,f_name from farmers", $conn) or die("unable to fetch records" . mysql_error());
     $i = 0;
     $total=0;
     while ($farmer = mysql_fetch_array($farmers)) {
         //$i+=1;
         $f_no = $farmer['f_no'];
-        $result = mysql_query("SELECT r_kg FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'", $conn) or trigger_error(mysql_error());
+        $result = mysqli_query($conn,"SELECT r_kg FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'", $conn) or trigger_error(mysql_error());
 
         $farmer_total = 0;
         while ($row = mysql_fetch_array($result)) {

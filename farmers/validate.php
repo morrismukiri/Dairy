@@ -9,14 +9,14 @@
          $errors['nulls']= '<span class="error badge badge-warning"> All fields with * are requied</span>';
         $has_errors = TRUE;
      }
-      $idresult=  mysql_query("select * from farmers where f_id= '$f_id' ", $conn) or die("unable to fetch records" . mysql_error());
+      $idresult=  mysqli_query($conn,"select * from farmers where f_id= '$f_id' ", $conn) or die("unable to fetch records" . mysql_error());
         if (mysql_num_rows($idresult) > 1) {
             $errors['id'] = "<span class='error  badge badge-warning'>Farmer with id no:$f_id Has been registered already</span>";
             $has_errors = TRUE;
         } else {
             $errors['id'] = '';
         }
-       $noresult= mysql_query("select * from farmers where f_no= '$f_no' ", $conn) or die("unable to fetch records" . mysql_error());
+       $noresult= mysqli_query($conn,"select * from farmers where f_no= '$f_no' ", $conn) or die("unable to fetch records" . mysql_error());
         if (mysql_num_rows($noresult) > 1) {
             $errors['no'] = "<span class='error  badge badge-warning'>Farmer no:$f_id Has already been issued</span>";
             $has_errors=TRUE;

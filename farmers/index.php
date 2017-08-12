@@ -10,7 +10,7 @@ echo "sorry Clerks are not allowed to access this module";
 exit();
 }
 $f_no = (int) $_GET['id']; 
-mysql_query("DELETE FROM `farmers` WHERE `f_no` = '" .stripslashes($f_no)."' ",$conn) ; 
+mysqli_query($conn,"DELETE FROM `farmers` WHERE `f_no` = '" .stripslashes($f_no)."' ",$conn) ; 
 echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.<br /> ";
 }
 ?> 
@@ -29,7 +29,7 @@ echo (mysql_affected_rows($conn)) ? "farmer deleted.<br /> " : "Nothing deleted.
     <tbody>
   <?php
 
-$qry=  mysql_query("select * from farmers",$conn) or die("unable to fetch records".  mysql_error());
+$qry=  mysqli_query($conn,"select * from farmers",$conn) or die("unable to fetch records".  mysql_error());
 $i=0;
 while($row=  mysql_fetch_array($qry))
 {

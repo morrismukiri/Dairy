@@ -15,11 +15,11 @@ if (isset($_POST['submitted'])) {
     }
     $hashed_pass=  md5($_POST['e_pass']);
     $sql = "INSERT INTO `employees` ( `e_name` ,  `e_mail` ,  `e_pass` ,  `e_role` ,  `e_payroll_no`  ) VALUES(  '{$_POST['e_name']}' ,  '{$_POST['e_mail']}' ,  '{$hashed_pass}' ,  '{$_POST['e_role']}' ,  '{$_POST['e_payroll_no']}'  ) ";
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($conn,$sql) or die(mysql_error());
     $e_payroll_no = $_POST['e_payroll_no'];
     echo "Employee added<br />";
     echo "<a href='index.php'>Back To Employees</a>";
 }
-$row = mysql_fetch_array(mysql_query("SELECT * FROM `employees` WHERE `e_payroll_no` ='$e_payroll_no'", $conn));
+$row = mysql_fetch_array(mysqli_query($conn,"SELECT * FROM `employees` WHERE `e_payroll_no` ='$e_payroll_no'", $conn));
 include 'form.php';
 ?>

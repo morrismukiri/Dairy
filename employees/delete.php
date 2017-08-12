@@ -6,7 +6,7 @@ if ($current_user['role'] != 'Manager') {
     exit();
 }
 $e_payroll_no = $_GET['e_payroll_no'];
-mysql_query("DELETE FROM `employees` WHERE `e_payroll_no` = '$e_payroll_no' ");
+mysqli_query($conn,"DELETE FROM `employees` WHERE `e_payroll_no` = '$e_payroll_no' ");
 echo (mysql_affected_rows()) ? "Employee deleted.<br /> " : "Nothing deleted.<br /> ";
 ?> 
 

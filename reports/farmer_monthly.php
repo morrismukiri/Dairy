@@ -36,10 +36,10 @@ include '../incl/conn.incl.php';
             $start = $_REQUEST['from'] != '' ? " and `r_dt` >= '" . mysql_real_escape_string($_REQUEST['from']) . "'" : '';
             $end = $_REQUEST['to'] != '' ? " and `r_dt` <= '" . mysql_real_escape_string($_REQUEST['to']) . "'" : '';
             //$sql = "SELECT * FROM `delivery` WHERE `r_dt` >= \'2013-05-01 00:00:00\' or `r_dt` <= \'2013-05-30 00:00:00\' ";
-            $result = mysql_query("SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end") or trigger_error(mysql_error());
+            $result = mysqli_query($conn,"SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end") or trigger_error(mysql_error());
             // echo "SELECT * FROM `delivery` WHERE r_f_no=$f_no $start $end";
 
-            $farmer = mysql_fetch_array(mysql_query("select * from farmers where f_no=$f_no", $conn));
+            $farmer = mysql_fetch_array(mysqli_query($conn,"select * from farmers where f_no=$f_no", $conn));
             $f_name = $farmer['f_name'];
             echo "Milk sales for $f_name [$f_no] from ".$_REQUEST['from'] ." to ". $_REQUEST['to'];
         }

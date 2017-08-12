@@ -72,7 +72,7 @@ class logmein {
         $args = array_map('mysql_real_escape_string', $args);
         array_unshift($args, $query);
         $query = call_user_func_array('sprintf', $args);
-        $result = mysql_query($query) or die(mysql_error());
+        $result = mysqli_query($conn,$query) or die(mysql_error());
         if ($result) {
             return $result;
         } else {
@@ -140,7 +140,7 @@ class logmein {
 
         //update database with new password
         $qry = "UPDATE " . $this->user_table . " SET " . $this->pass_column . "='" . $newpassword_db . "' WHERE " . $this->user_column . "='" . stripslashes($username) . "'";
-        $result = mysql_query($qry) or die(mysql_error());
+        $result = mysqli_query($conn,$qry) or die(mysql_error());
 
         $to = stripslashes($username);
         //some injection protection
@@ -225,7 +225,7 @@ Your new password is: " . $newpassword . "
               userlevel int(11) NOT NULL default '0',
               PRIMARY KEY  (userid)
             )";
-                $result = mysql_query($qry) or die(mysql_error());
+                $result = mysqli_query($conn,$qry) or die(mysql_error());
                 return;
             }
 

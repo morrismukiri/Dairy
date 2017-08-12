@@ -15,7 +15,7 @@ if (isset($_POST['submitted'])) {
         $datetime = strtotime($_POST['r_dt']);
         $mysqldate = date("Y-m-d H:i:s", $datetime);
         $sql = "INSERT INTO `delivery` ( `r_f_no` ,  `r_kg` ,  `r_dt` ,  `r_deliverer`  ) VALUES(  '{$_POST['r_f_no']}' ,  '{$_POST['r_kg']}' ,  '{$mysqldate}' ,  '{$_POST['r_deliverer']}'  ) ";
-        mysql_query($sql) or die(mysql_error());
+        mysqli_query($conn,$sql) or die(mysql_error());
         echo "Saved!.<br />";
         echo "<a href='index.php' class='btn btn-primary'>Back To Deliveries</a>";
     }

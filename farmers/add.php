@@ -14,7 +14,7 @@ if (isset($_POST['f_no'])) {
     if ($validation['valid'] == TRUE) {
         $sql = "INSERT INTO `farmers` ( `f_no` ,`f_id` , `f_name` , `f_locallity` ,  `f_ac` ,  `f_phone`  ) VALUES(  '{$_POST['f_no']}' ,'{$_POST['f_id']}' , '{$_POST['f_name']}' , '{$_POST['f_locallity']}' ,  '{$_POST['f_ac']}' ,  '{$_POST['f_phone']}'  ) ";
 
-        mysql_query($sql, $conn) or die(mysql_error());
+        mysqli_query($conn,$sql, $conn) or die(mysql_error());
         echo "Farmer Added.<br />";
        
     } else {
