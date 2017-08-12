@@ -10,11 +10,11 @@ if (isset($_POST['f_no'])) {
 //    foreach ($_POST AS $key => $value) {
 //        $_POST[$key] = mysqli_real_escape_string($conn, $value);
 //    }
-    $validation = validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'], $conn);
+    $validation = validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone']);
     if ($validation['valid'] == TRUE) {
         $sql = "INSERT INTO `farmers` ( `f_no` ,`f_id` , `f_name` , `f_locallity` ,  `f_ac` ,  `f_phone`  ) VALUES(  '{$_POST['f_no']}' ,'{$_POST['f_id']}' , '{$_POST['f_name']}' , '{$_POST['f_locallity']}' ,  '{$_POST['f_ac']}' ,  '{$_POST['f_phone']}'  ) ";
 
-        mysqli_query($conn,$sql, $conn) or die(mysql_error());
+        mysqli_query($conn,$sql) or die(mysqli_error($conn));
         echo "Farmer Added.<br />";
        
     } else {

@@ -61,5 +61,5 @@
                 </div> -->
 
                 <?php
-                include '../incl/footer.incl.php';
+                include "/../incl/footer.incl.php";
                 ?>

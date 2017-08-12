@@ -5,7 +5,7 @@ include '../../incl/conn.incl.php';
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['id'];
     mysqli_query($conn,"DELETE FROM `settings_rates` WHERE `id` = '$id' ");
-    echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> ";
+    echo (mysqli_affected_rows($conn)) ? "Row deleted.<br /> " : "Nothing deleted.<br /> ";
 }
 ?>
 <a class="btn btn-large btn-primary" href="new.php"><i class="icon-plus icon-white"></i>Add Rates</a><br/><br/>
@@ -20,9 +20,9 @@ if (isset($_GET['delete'])) {
 </thead>
 <tbody>
     <?php
-    $result = mysqli_query($conn,"SELECT * FROM `settings_rates`") or trigger_error(mysql_error());
+    $result = mysqli_query($conn,"SELECT * FROM `settings_rates`") or trigger_error(mysqli_error($conn));
     $i = 0;
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result)) {
         foreach ($row AS $key => $value) {
             $row[$key] = stripslashes($value);
         }

@@ -15,14 +15,14 @@ if (file_exists('auth/auth.php')) {
 }
 $log = new logmein();
 $log->encrypt = true;
-if ($log->logincheck($_SESSION['loggedin'], "employees", "e_pass", "e_mail") == false) {
+if (!isset($_SESSION['loggedin']) || !$log->logincheck($_SESSION['loggedin'], "employees", "e_pass", "e_mail")) {
     $log->loginform("login", "loginform", PAGE_URL . "auth/login.php");
     exit();
 } else {
     $current_user['email'] = $_SESSION['username'];
     $current_user['name'] = $_SESSION['full_name'];
     $current_user['role'] = $_SESSION['userlevel'];
-    list($singlename, $second, $third) = explode(' ', $current_user['name'], 3);
+    list($singlename) = explode(' ', $current_user['name'], 3);
 }
 ?>
 <!DOCTYPE HTML>

@@ -1,6 +1,6 @@
 <?php
 //For security reasons, don't display any errors or warnings. Comment out in DEV.
-error_reporting(0);
+// error_reporting(0);
 //start session
 session_start();
 
@@ -20,11 +20,13 @@ class logmein {
     var $user_name = 'e_name';
     //encryption
     var $encrypt = false;       //set to true to use md5 encryption for the password
+    var $connection = NULL;
 
     //connect to database
 
     function dbconnect() {
         $connections = mysqli_connect($this->hostname_logon, $this->username_logon, $this->password_logon) or die('Unabale to connect to the database');
+        $this->connection= $connections;
         mysqli_select_db($connections, $this->database_logon) or die('Unable to select database!');
         return;
     }
@@ -43,7 +45,7 @@ class logmein {
         }
         //execute login via qry function that prevents MySQL injections
         $result = $this->qry("SELECT * FROM " . $this->user_table . " WHERE " . $this->user_column . "='?' AND " . $this->pass_column . " = '?';", $username, $password);
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         if ($row != "Error") {
             if ($row[$this->user_column] != "" && $row[$this->pass_column] != "") {
                 //register sessions
@@ -69,10 +71,10 @@ class logmein {
         $args = func_get_args();
         $query = array_shift($args);
         $query = str_replace("?", "%s", $query);
-        $args = array_map('mysql_real_escape_string', $args);
+        $args = array_map(array($this->connection,'real_escape_string'), $args);
         array_unshift($args, $query);
         $query = call_user_func_array('sprintf', $args);
-        $result = mysqli_query($conn,$query) or die(mysql_error());
+        $result = mysqli_query($this->connection,$query) or die(mysqli_error($conn));
         if ($result) {
             return $result;
         } else {
@@ -103,9 +105,9 @@ class logmein {
         }
         //exectue query
         $result = $this->qry("SELECT * FROM " . $this->user_table . " WHERE " . $this->pass_column . " = '?';", $logincode);
-        $rownum = mysql_num_rows($result);
+        $rownum = mysqli_num_rows($result);
         //return true if logged in and false if not
-        if ($row != "Error") {
+        if ($result != "Error") {
             if ($rownum > 0) {
                 return true;
             } else {
@@ -140,7 +142,7 @@ class logmein {
 
         //update database with new password
         $qry = "UPDATE " . $this->user_table . " SET " . $this->pass_column . "='" . $newpassword_db . "' WHERE " . $this->user_column . "='" . stripslashes($username) . "'";
-        $result = mysqli_query($conn,$qry) or die(mysql_error());
+        $result = mysqli_query($conn,$qry) or die(mysqli_error($conn));
 
         $to = stripslashes($username);
         //some injection protection
@@ -225,7 +227,7 @@ Your new password is: " . $newpassword . "
               userlevel int(11) NOT NULL default '0',
               PRIMARY KEY  (userid)
             )";
-                $result = mysqli_query($conn,$qry) or die(mysql_error());
+                $result = mysqli_query($conn,$qry) or die(mysqli_error($conn));
                 return;
             }
 

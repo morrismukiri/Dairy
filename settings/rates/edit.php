@@ -13,11 +13,11 @@ if (isset($_GET['id'])) {
             $_POST[$key] = mysqli_real_escape_string($conn, $value);
         }
         $sql = "UPDATE `settings_rates` SET  `from` =  '{$_POST['from']}' ,  `to` =  '{$_POST['to']}' ,  `rate` =  '{$_POST['rate']}'   WHERE `id` = '$id' ";
-        mysqli_query($conn,$sql) or die(mysql_error());
-        echo (mysql_affected_rows()) ? "Edited row.<br />" : "Nothing changed. <br />";
+        mysqli_query($conn,$sql) or die(mysqli_error($conn));
+        echo (mysqli_affected_rows($conn)) ? "Edited row.<br />" : "Nothing changed. <br />";
         echo "<a href='index.php'>Back To Listing</a>";
     }
-    $row = mysql_fetch_array(mysqli_query($conn,"SELECT * FROM `settings_rates` WHERE `id` = '$id' "));
+    $row = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `settings_rates` WHERE `id` = '$id' "));
     echo "<a href='index.php'>Back To Listing</a>";
     include 'form.php';
     } ?> 

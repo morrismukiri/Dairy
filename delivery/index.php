@@ -10,7 +10,7 @@ include '../incl/header.incl.php';
 if(isset($_GET['delete'])){
     $id = (int) $_GET['id']; 
 mysqli_query($conn,"DELETE FROM `delivery` WHERE `id` = '$id' ") ; 
-echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "; 
+echo (mysqli_affected_rows($conn)) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "; 
 }
 ?>
 <h1>Deliveries</h1>
@@ -28,9 +28,9 @@ echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "
         </thead>
     <tbody>
  <?php
-$result = mysqli_query($conn,"SELECT * FROM `delivery`") or trigger_error(mysql_error()); 
+$result = mysqli_query($conn,"SELECT * FROM `delivery`") or trigger_error(mysqli_error($conn)); 
 $i=0;
-while($row = mysql_fetch_array($result)){ 
+while($row = mysqli_fetch_array($result)){ 
 foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
 $i+=1;
 echo "<tr>";  

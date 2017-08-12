@@ -18,9 +18,9 @@ exit();
        $validation= validate_farmers($_POST['f_no'], $_POST['f_id'], $_POST['f_name'], $_POST['f_locallity'], $_POST['f_ac'], $_POST['f_phone'],$conn);
           if ($validation['valid']==TRUE ) {
               $sql = "UPDATE farmers SET  f_no =  '{$_POST['f_no']}' ,f_id =  '{$_POST['f_id']}' ,  f_name =  '{$_POST['f_name']}' , f_locallity =  '{$_POST['f_locallity']}' ,  f_ac =  '{$_POST['f_ac']}' ,  f_phone =  '{$_POST['f_phone']}'   WHERE f_no = '$f_no' ";
-            $rslt = mysqli_query($conn,$sql, $conn) or die(mysql_error());
+            $rslt = mysqli_query($conn,$sql) or die(mysqli_error($conn));
             $f_no =  $_POST['f_no'];
-            echo (mysql_affected_rows($conn)) ? " Saved successfully.<br />" : "Nothing changed. <br />";
+            echo (mysqli_affected_rows($conn)) ? " Saved successfully.<br />" : "Nothing changed. <br />";
             echo "";
             
         }
@@ -28,9 +28,9 @@ exit();
             echo $validation['nulls'];
  }
     }
-    $farmer_to_edit = mysqli_query($conn,"SELECT * FROM farmers WHERE f_no =".  stripslashes($f_no) , $conn);
+    $farmer_to_edit = mysqli_query($conn,"SELECT * FROM farmers WHERE f_no =".  stripslashes($f_no) );
 
-    $row = mysql_fetch_array($farmer_to_edit);
+    $row = mysqli_fetch_array($farmer_to_edit);
      //echo $validation['nulls'];
     ?>
 <a href='index.php' class='btn btn-primary'>Back To Listing</a>

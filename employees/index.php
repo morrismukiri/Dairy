@@ -17,8 +17,8 @@ exit();
         <th> Payroll No</th>
         <th>Actions</th></tr> </thead><tbody>
         <?php
-    $result = mysqli_query($conn,"SELECT * FROM `employees`") or trigger_error(mysql_error()); 
-    while($row = mysql_fetch_array($result)){ 
+    $result = mysqli_query($conn,"SELECT * FROM `employees`") or trigger_error(mysqli_error($conn)); 
+    while($row = mysqli_fetch_array($result)){ 
     foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
     echo "<tr>";  
         //echo "<td>" . nl2br( $row['id']) . "</td>";  

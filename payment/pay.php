@@ -9,14 +9,14 @@ if (isset($_GET['f_no'])) {
     $authority = '';
 
     $rates = mysqli_query($conn,"SELECT * FROM `settings_rates` WHERE `to` <='$end'");
-    $rate = (int) mysql_result($rates, 0, 'rate');
+    $rate = (int) mysqli_result($rates, 0, 'rate');
     //echo $rate;
-//$rates = mysql_fetch_row($ratesrows);
+//$rates = mysqli_fetch_row($ratesrows);
 
-    $farmer = mysql_fetch_array(mysqli_query($conn,"select f_no,f_name,last_paid,f_ac from farmers where f_no=$f_no", $conn));
-    //$farmer = mysql_fetch_row($farmers);
+    $farmer = mysqli_fetch_array(mysqli_query($conn,"select f_no,f_name,last_paid,f_ac from farmers where f_no=$f_no"));
+    //$farmer = mysqli_fetch_row($farmers);
 
-    $result = mysqli_query($conn,"SELECT * FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'", $conn) or trigger_error(mysql_error());
+    $result = mysqli_query($conn,"SELECT * FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'") or trigger_error(mysqli_error($conn));
 
     $farmer_total = 0;
 
@@ -25,7 +25,7 @@ if (isset($_GET['f_no'])) {
     $mysqldate = date("Y-m-d", $datetime);
     $updatesql="UPDATE `farmers` SET  `last_paid` =  '$mysqldate' WHERE  `f_no` =  '$f_no'";
     
-    $insertcmd = mysqli_query($conn,$updatesql,$conn); //INSERT INTO `farmers` ( `p_to` ,  `p_date` ,  `p_ac` ,  `p_transacted_by`  ) VALUES(  '{$f_no}' ,  '{$mysqldate}' ,  '{$farmer['f_ac']}' ,  '{$authority}'  ) ");
+    $insertcmd = mysqli_query($conn,$updatesql); //INSERT INTO `farmers` ( `p_to` ,  `p_date` ,  `p_ac` ,  `p_transacted_by`  ) VALUES(  '{$f_no}' ,  '{$mysqldate}' ,  '{$farmer['f_ac']}' ,  '{$authority}'  ) ");
     ?>
     <div id="printable">
         <table id="receipt"  >
@@ -46,7 +46,7 @@ if (isset($_GET['f_no'])) {
         echo '<thead class="" ><th>#</th><th>Date</th><th>KGs:</th></thead><tbody>';
         $count = 0;
 
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             foreach ($row AS $key => $value) {
                 $row[$key] = stripslashes($value);
             }

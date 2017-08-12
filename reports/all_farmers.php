@@ -42,16 +42,16 @@ $start = isset($_REQUEST['from'])?$_REQUEST['from']:'';
     $start = mysqli_real_escape_string($conn, $_REQUEST['from']);
     $end = mysqli_real_escape_string($conn, $_REQUEST['to']);
 
-    $farmers = mysqli_query($conn,"select f_no,f_name from farmers", $conn) or die("unable to fetch records" . mysql_error());
+    $farmers = mysqli_query($conn,"select f_no,f_name from farmers") or die("unable to fetch records" . mysqli_error($conn));
     $i = 0;
     $total=0;
-    while ($farmer = mysql_fetch_array($farmers)) {
+    while ($farmer = mysqli_fetch_array($farmers)) {
         //$i+=1;
         $f_no = $farmer['f_no'];
-        $result = mysqli_query($conn,"SELECT r_kg FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'", $conn) or trigger_error(mysql_error());
+        $result = mysqli_query($conn,"SELECT r_kg FROM `delivery` WHERE r_f_no=$f_no and `r_dt` >='$start' and `r_dt` <= '$end'") or trigger_error(mysqli_error($conn));
 
         $farmer_total = 0;
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             foreach ($row AS $key => $value) {$row[$key] = stripslashes($value);}
 
             $farmer_total+=nl2br($row['r_kg']);
