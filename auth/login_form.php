@@ -59,5 +59,5 @@
                 </div> -->
 
                 <?php
-                    include '../incl/footer.incl.php';
+                  include __DIR__ . "/../incl/footer.incl.php"
                 ?>
