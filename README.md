@@ -29,12 +29,13 @@ The employee who is receiving the deliveries
 
 1. Clone this repo to your documents root e.g under `c:\xampp\htdocs\Dairy` on windows
 2. Import the `dairy.sql` file to your database. (You can create a database called dairy using phpmyadmin and import this file into it)
-3. open `inc\conn.incl.php` file and enter your database settings
+3. open `inc\config.incl.php` file and enter your database settings
 ```php
 define('db_host', 'localhost');
 define('db_user', 'root');
 define('db_password', '');
 define('db_database', 'dairy');
+define ('PAGE_URL', 'http://localhost/Dairy/');
 ```
 4. Open the url to your project e.g [http://localhost/Dairy](http://localhost/Dairy) and login with an already created account
 
