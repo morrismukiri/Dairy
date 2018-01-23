@@ -10,8 +10,8 @@ class logmein {
     //MAKE SURE TO FILL IN DATABASE INFO
     var $hostname_logon = 'localhost';      //Database server LOCATION
     var $database_logon = 'dairy';       //Database NAME
-    var $username_logon = 'root';       //Database USERNAME
-    var $password_logon = '';       //Database PASSWORD
+    var $username_logon = 'dairyuser';       //Database USERNAME
+    var $password_logon = 'uvivu';       //Database PASSWORD
     //table fields
     var $user_table = 'employees';          //Users table name
     var $user_column = 'e_mail';     //USERNAME column (value MUST be valid email)
