@@ -1,8 +1,8 @@
 
 
 <?php 
-include '../incl/conn.incl.php';
 include '../incl/header.incl.php';
+include '../incl/conn.incl.php';
 //include('../incl/auth.incl.php');
 
 

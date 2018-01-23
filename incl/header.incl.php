@@ -1,5 +1,5 @@
 <?php
-define('PAGE_URL', 'http://localhost/Dairy/');
+include_once __DIR__.'/config.incl.php';
 $current_user = array();
 
 function Page_Url() {
